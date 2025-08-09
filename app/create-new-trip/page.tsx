@@ -1,5 +1,5 @@
 import React from 'react'
-import ChatBox from './_components/chatBox';
+import ChatBox from './_components/ChatBox';
 
 function CreateNewTrip() {
   return (

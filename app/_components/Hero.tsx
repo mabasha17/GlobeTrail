@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
-const TravelIdeas = [
+export const TravelIdeas = [
   {
     title: "Create a trip for Paris from India",
     icon: <Globe2 className="text-blue-400 h-5 w-5" />,
@@ -27,7 +27,7 @@ const TravelIdeas = [
 ];
 
 function Hero() {
-  const {user} = useUser();
+  const { user } = useUser();
   const router = useRouter();
   const onsend = () => {
     if (!user) {
@@ -53,14 +53,18 @@ function Hero() {
               placeholder="create a trip for Paris from India..."
               className="w-full h-28 bg-transparent border-none focus-visible:ring-0"
             />
-            <Button size={"icon"} className="absolute bottom-6 right-6 hover:scale-105 transition-all duration-300" onClick={() => onsend()}>
+            <Button
+              size={"icon"}
+              className="absolute bottom-6 right-6 hover:scale-105 transition-all duration-300"
+              onClick={() => onsend()}
+            >
               <Send className="h-4 w-4" />
             </Button>
           </div>
         </div>
         {/* suggestions list */}
         <div className=" flex flex-wrap justify-center gap-3 max-w-xl mx-auto ">
-          {TravelIdeas.map((s,i) => (
+          {TravelIdeas.map((s, i) => (
             <div
               key={i}
               className="flex items-center gap-2 border rounded-full
